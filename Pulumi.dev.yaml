@@ -1,0 +1,4 @@
+config:
+  aws:region: eu-central-1
+  test_application:instanceType: t3.medium
+  test_application:vpcNetworkCidr: 10.0.0.0/16

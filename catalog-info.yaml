@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: test_application
+  description: The virtual machine for the dev
+  links:
+  - title: Pulumi Console
+    url: https://app.pulumi.com/backstage/test_application/dev
+spec:
+  type: virtual-machine
+  owner: "group:default/guests"
+  lifecycle: experimental
+  system: system:default/examples
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test_application
+  description: "aws"
+  annotations:
+    github.com/project-slug: damodarkumar/aws-vm-backstage02
+    pulumi.com/project-slug: backstage/test_application/dev
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "group:default/guests"
+  system: system:default/examples
+  dependsOn:
+  - resource:default/test_application
